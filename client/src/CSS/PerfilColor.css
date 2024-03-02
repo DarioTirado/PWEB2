@@ -1,0 +1,104 @@
+body {
+    
+}
+
+.SecondBodyClass {
+    padding-top: 50px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ff7b00;
+}
+
+/* .container {
+    margin-top: 100px;
+} */
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none;
+}
+
+.profile-button:hover {
+    background: #682773;
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none;
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none;
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer;
+}
+
+.labels {
+    font-size: 11px;
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8;
+}
+
+form {
+    display: grid;
+}
+
+.personal-info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+}
+
+.row2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.perfil-info-izq {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.perfil-info-izq h11:hover {
+    color: #ff9900;
+    cursor: pointer;
+}
+
+.padding-card .mt-5 .pad{
+    padding-bottom: 20px;
+    padding-top: 0px;
+}
+
+.Perf-Pedid-List-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfil-info-izq{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}

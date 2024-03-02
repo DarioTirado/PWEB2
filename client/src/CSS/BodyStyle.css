@@ -1,0 +1,241 @@
+.divbody {
+background-color: #e0e0e0;
+
+}
+
+body {
+    background-color: #8b8daa;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%232490D6' width='11' height='11'/%3E%3Crect fill='%231992d7' x='10' width='11' height='11'/%3E%3Crect fill='%230895d7' y='10' width='11' height='11'/%3E%3Crect fill='%230097d8' x='20' width='11' height='11'/%3E%3Crect fill='%23009ad8' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23009cd8' y='20' width='11' height='11'/%3E%3Crect fill='%23009ed8' x='30' width='11' height='11'/%3E%3Crect fill='%2300a1d7' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%2300a3d7' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%2300a5d7' y='30' width='11' height='11'/%3E%3Crect fill='%2300a7d6' x='40' width='11' height='11'/%3E%3Crect fill='%2300a9d5' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%2300abd5' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%2300add4' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%2300afd3' y='40' width='11' height='11'/%3E%3Crect fill='%2300b1d2' x='50' width='11' height='11'/%3E%3Crect fill='%2300b3d1' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%2300b5d0' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%2300b7ce' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%2300b9cd' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%2303bbcc' y='50' width='11' height='11'/%3E%3Crect fill='%2316bdca' x='60' width='11' height='11'/%3E%3Crect fill='%2322bec9' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%232cc0c8' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%2334c2c6' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%233cc4c5' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%2343c5c3' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%234ac7c2' x='70' width='11' height='11'/%3E%3Crect fill='%2350c8c0' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%2357cabf' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%235dcbbe' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%2363cdbc' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%2368cebb' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%236ed0ba' x='80' width='11' height='11'/%3E%3Crect fill='%2374d1b9' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%2379d3b8' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%237fd4b7' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%2384d5b6' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%238ad7b5' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%238fd8b4' x='90' width='11' height='11'/%3E%3Crect fill='%2394d9b3' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%2399dab3' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%239edcb2' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23a3ddb2' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23a8deb1' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23addfb1' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23b2e0b1' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23b7e2b1' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23bce3b1' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23c1e4b2' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23c6e5b2' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23cae6b2' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23cfe7b3' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23d4e8b4' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23d8e9b5' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23ddeab6' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23e1ebb7' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23e5ecb8' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23eaedb9' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23EEB' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #8fc1ff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #ffb4b4;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #ff9900;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.8);
+}
+
+.NombreTienda {
+    background: #ffd6be;
+    padding: 1px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    box-shadow: 0px 0px 15px rgb(83, 30, 5);
+}
+
+.NombreTienda h1{
+    color: #ccc;
+}
+
+header{
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    background-color: #2f3f4e;
+    color: white;
+    /* padding: 10px 0; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom-style: groove;
+    border-color: #211e2c;
+}
+
+
+.logo{
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 60px;
+    height: 60px;
+}
+
+.logo h2{
+    margin: 0px;
+    margin-right: 7px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ff9900;
+}
+
+footer {
+    background-color: #2f3f4e;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px 0px 30px rgb(83, 30, 5);
+    width: 100%;
+    margin-top: 194px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    max-width: 100px;
+}
+
+.footer-info, .footer-social {
+    flex: 1;
+    margin: 0 20px;
+    text-align: left;
+}
+
+.footer-info h3, .footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-info p {
+    margin: 0;
+}
+
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-social ul li {
+    margin: 5px 0;
+}
+
+.footer-social a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #a7a7a7;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+}
+
+input[type="text"], [type="password"], [type="email"] {
+    width: 100%;
+    padding: 3px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"], input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #2b2420;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+    background-color:  #ff8800;
+}
+
+.search-box{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.search-box input[type="submit"]{
+    width: 70px;
+    padding: 11px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.search-box input[type="text"]{
+    width: auto;
+    margin: 0px;
+    border-radius: 0px;
+    width: 100%;
+    padding: 10px;
+}
+
+.search-box input[type="text"]:focus{
+    border-color: #ff8800;
+    outline: none;
+}
+
+#filter {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width: 100px;
+}
+
+#filter option {
+    background-color: #fff;
+    color: #333;
+}
+
+#filter:focus {
+    border-color: #ff8800;
+    outline: none;
+}

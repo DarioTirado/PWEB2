@@ -43,3 +43,28 @@ console.log("corriendo en el puerto 3001");
 
 
 
+app.post("/login", 
+    (req, resp)=>{
+
+
+        db.query("SELECT * FROM usuario WHERE CORREO=? AND CONTRASEÑA=?",
+        [req.body.us, req.body.con],
+        (err, data)=>{
+            if(err){
+                resp.send(err);
+            }else{
+                console.log("Datos recibidos desde la base de datos:", data);
+                if(data.length > 0){
+                    resp.json({
+                        "alert": 'Success',
+                        "usuario": data[0].nomU
+                    })
+                }else{
+                    resp.json({
+                        "alert": 'Error',
+                        "message": 'Usuario no encontrado'
+                    });
+                }
+            }
+        })
+})

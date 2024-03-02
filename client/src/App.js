@@ -1,17 +1,48 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/CSS/Login.css';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
 function App() {
+  const[user, setUser] = useState('');
+  const[pass, setPass] = useState('');
   const navigate = useNavigate();
+
+  useEffect(
+    ()=>{
+        localStorage.removeItem('sesion');
+}, [])
+
+const log = () => {
+  axios.post("http://localhost:3001/login", {
+    us: user,
+    con: pass 
+  }).then((response) => {
+    const data = response.data; // Obtener los datos reales de la respuesta
+    if (data.alert === "Success") {
+      localStorage.setItem('sesion', JSON.stringify(data.usuario));
+      console.log(data);
+      alert('Usuario encontrado');
+      navigate("/Home"); // Redirigir a la página Home después de que el inicio de sesión sea exitoso
+    } else {
+      alert('Usuario no encontrado');
+    }
+  }).catch((error) => {
+    console.log(error);
+    alert('Error al iniciar sesión'); // Añadir un mensaje de error en caso de fallo en la petición
+  });
+}
 
   const handleRegistroClick = () => {
     navigate('/registro'); // Redirige a la ruta '/registro'
   };
 
+  
+  const handlehClick = () => {
+    navigate('/Home'); // Redirige a la ruta '/registro'
+  };
+ 
   return (
     <section className="text-center text-lg-start">
     <div className="container py-4">
@@ -23,16 +54,16 @@ function App() {
               <form>
 
                 <div className="form-outline mb-4">
-                  <input type="email" id="form3Example3" className="form-control" />
+                  <input type="email" id="form3Example3" className="form-control" onChange={(e)=>{setUser(e.target.value)}} value={user} />
                   <label className="form-label" htmlFor="form3Example3">Correo electronico</label>
                 </div>
 
                 <div className="form-outline mb-4">
-                  <input type="password" id="form3Example4" className="form-control" />
+                  <input type="password" id="form3Example4" className="form-control" onChange={(e)=>{setPass(e.target.value)}} value={pass}/>
                   <label className="form-label" htmlFor="form3Example4">Contrasena</label>
                 </div>                
 
-                <button type="submit" className="btn btn-primary btn-block mb-4">
+                <button onClick={log } className="btn btn-primary btn-block mb-4">
                   Entrar
                 </button>
 
@@ -42,6 +73,7 @@ function App() {
                 <button onClick={handleRegistroClick } className="btn btn-primary btn-block mb-4">
                   Registrarse
                 </button>
+                
                 
               </form>
             </div>
