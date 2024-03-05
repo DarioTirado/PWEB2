@@ -1,46 +1,55 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/CSS/Login.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useHistory} from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+
 
 function App() {
   const[user, setUser] = useState('');
   const[pass, setPass] = useState('');
   const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
+
 
   useEffect(
     ()=>{
         localStorage.removeItem('sesion');
 }, [])
 
-const log = () => {
-  axios.post("http://localhost:3001/login", {
-    us: user,
-    con: pass 
-  }).then((response) => {
-    const data = response.data; // Obtener los datos reales de la respuesta
+
+const log = async (event) => {
+  try {
+    event.preventDefault(); // Evita la propagación del evento click
+    const response = await axios.post("http://localhost:3001/login", {
+      us: user,
+      con: pass 
+    });
+
+    const data = response.data; 
+    console.log(data); 
     if (data.alert === "Success") {
-      localStorage.setItem('sesion', JSON.stringify(data.usuario));
-      console.log(data);
+      setUserData(data);
+      localStorage.setItem('sesion', JSON.stringify(data));
       alert('Usuario encontrado');
-      navigate("/Home"); // Redirigir a la página Home después de que el inicio de sesión sea exitoso
+      navigate('/Home');
     } else {
       alert('Usuario no encontrado');
     }
-  }).catch((error) => {
+  } catch (error) {
     console.log(error);
-    alert('Error al iniciar sesión'); // Añadir un mensaje de error en caso de fallo en la petición
-  });
+    alert('Error al iniciar sesión');
+  }
 }
 
+
   const handleRegistroClick = () => {
-    navigate('/registro'); // Redirige a la ruta '/registro'
+    navigate('/registro'); 
   };
 
   
   const handlehClick = () => {
-    navigate('/Home'); // Redirige a la ruta '/registro'
+    navigate('/Home');
   };
  
   return (
@@ -63,7 +72,7 @@ const log = () => {
                   <label className="form-label" htmlFor="form3Example4">Contrasena</label>
                 </div>                
 
-                <button onClick={log } className="btn btn-primary btn-block mb-4">
+                <button onClick={ log  } className="btn btn-primary btn-block mb-4">
                   Entrar
                 </button>
 
@@ -73,8 +82,7 @@ const log = () => {
                 <button onClick={handleRegistroClick } className="btn btn-primary btn-block mb-4">
                   Registrarse
                 </button>
-                
-                
+               
               </form>
             </div>
           </div>

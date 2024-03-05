@@ -57,7 +57,12 @@ app.post("/login",
                 if(data.length > 0){
                     resp.json({
                         "alert": 'Success',
-                        "usuario": data[0].nomU
+                        "nombre": data[0].NOMBRES,
+                        "apellidos": data[0].APELLIDOS,
+                        "genero": data[0].GENERO,
+                        "correo": data[0].CORREO,
+                        "con": data[0].CONTRASEÑA,
+                        "rol": data[0].ROL
                     })
                 }else{
                     resp.json({

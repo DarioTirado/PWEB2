@@ -5,7 +5,7 @@ import '../RECURSOS/LogoLibro2.jpg';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
-    const sesion = JSON.parse(localStorage.getItem('sesion'))
+   // const sesion = JSON.parse(localStorage.getItem('sesion'))
     const navigate = useNavigate(); 
 
     const handlePerfilClick = () => {

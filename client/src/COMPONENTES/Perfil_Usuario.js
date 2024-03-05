@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../CSS/HomeStyle.css';
 import '../CSS/PerfilColor.css';
 import '../CSS/BodyStyle.css';
 import { useNavigate } from 'react-router-dom';
 
 function PerfilU() {
+    const sesion = JSON.parse(localStorage.getItem('sesion'))
     const navigate = useNavigate(); 
 
     const handleHomeClick = () => {
@@ -70,23 +71,23 @@ function PerfilU() {
                                         <div className="row mt-2">
                                             <label className="form-label" htmlFor="form3Example1m">Nombre</label>
                                             <input name="nombre_input_name" type="text" id="Nombre"
-                                                className="form-control form-control-lg" required />
+                                                className="form-control form-control-lg" required value={sesion.nombre + sesion.apellidos} />
                                             <label className="form-label" htmlFor="form3Example1m">Rol de Usuario</label>
                                             <input name="rol_input_name" type="text" id="RoldeUsuario"
-                                                className="form-control form-control-lg" required />
+                                                className="form-control form-control-lg" required value={sesion.rol} />
 
                                         </div>
                                         <div className="row mt-3">
                                             <label className="form-label" htmlFor="form3Example9">Correo Electrónico</label>
                                             <input name="correo_input_name_registro" type="email" id="CorreoElectronico"
-                                                className="form-control form-control-lg" required />
+                                                className="form-control form-control-lg" required value={sesion.correo}/>
 
                                             <label className="form-label" htmlFor="form3Example90">Contrasena</label>
                                             <input name="password_input_name_registro" type="password" id="Contrasena"
-                                                className="form-control form-control-lg" required />
+                                                className="form-control form-control-lg" required value={sesion.con} />
                                             <label className="form-label" htmlFor="form3Example1n">Género</label>
                                             <input name="genero_input_name" type="text" id="Genero"
-                                                className="form-control form-control-lg" required />
+                                                className="form-control form-control-lg" required value={sesion.genero} />
                                         </div>
                                         <div className="d-flex justify-content-end pt-3">
                                             <button id="register_btn" className="btn btn-warning btn-lg ms-2">Modificar</button>
