@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import '../CSS/HomeStyle.css';
 import '../CSS/PerfilColor.css';
 import '../CSS/BodyStyle.css';
+import FormularioModal from '../COMPONENTES/modal_libro';
+import FormularioModalAutor from '../COMPONENTES/modal_Autor';
 import { useNavigate } from 'react-router-dom';
 
 function PerfilU() {
@@ -11,9 +13,20 @@ function PerfilU() {
     const handleHomeClick = () => {
       navigate('/Home'); // Redirige a la ruta '/registro'
     };
+    const handleHomeClickListaAutores = () => {
+        navigate('/Lista_Autores'); 
+      };
     const handleLoginClick = () => {
         navigate('/'); // Redirige a la ruta '/registro'
       };
+      const [showModal, setShowModal] = useState(false);
+      const handleShow = () => setShowModal(true);
+      const handleClose = () => setShowModal(false);
+
+      const [showModalautor, setShowModalautor] = useState(false);
+      const handleShowautor = () => setShowModalautor(true);
+      const handleCloseautor = () => setShowModalautor(false);
+    
 
     return (
         <>
@@ -37,6 +50,7 @@ function PerfilU() {
                         <li><a href="" onClick={handleHomeClick}>Inicio</a></li>
                         <li><a href="PerfilUsuario.html">Mi Cuenta</a></li>
                         <li><a href="">Mis Reseñas</a></li>
+                        <li><a href="" onClick={handleHomeClickListaAutores} >Autores</a></li>
                         <li><a href="" onClick={handleLoginClick}>Salir</a></li>
                     </ul>
                 </nav>
@@ -77,12 +91,16 @@ function PerfilU() {
                                             <label className="form-label" htmlFor="form3Example90">Contrasena</label>
                                             <input name="password_input_name_registro" type="password" id="Contrasena"
                                                 className="form-control form-control-lg" required value={sesion.con} />
-                                            <label className="form-label" htmlFor="form3Example1n">Género</label>
-                                            <input name="genero_input_name" type="text" id="Genero"
-                                                className="form-control form-control-lg" required value={sesion.genero} />
+
                                         </div>
                                         <div className="d-flex justify-content-end pt-3">
                                             <button id="register_btn" className="btn btn-warning btn-lg ms-2">Modificar</button>
+                                            <button type='button' id="register_btnagregarlibro" className="btn btn-warning btn-lg ms-2" onClick={handleShow}>Agregar Libro</button>
+                                            <FormularioModal showModal={showModal} handleClose={handleClose} />
+                                            <button id="register_btnges" className="btn btn-warning btn-lg ms-2">Gestionar Libro</button>
+                                            <button type='button' id="register_btnges" className="btn btn-warning btn-lg ms-2" onClick={handleShowautor} >Agregar Autor</button>
+                                            <FormularioModalAutor showModal={showModalautor} handleClose={handleCloseautor} />
+                                            <button id="register_btnges" className="btn btn-warning btn-lg ms-2">Gestionar Autor</button>
                                         </div>
                                     </div>
                                 </div>

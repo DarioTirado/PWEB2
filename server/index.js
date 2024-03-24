@@ -35,6 +35,27 @@ app.post("/create",(req,res)=>{
 });
 
 
+app.post("/RegistrarAutor",(req,res)=>{
+    const nombre = req.body.nombre;
+    const apellidos = req.body.apellido;
+    const edad = req.body.edad;
+  
+
+    db.query('INSERT INTO autor (NOMBRE, APELLIDO, EDAD) VALUES(?,?,?)',
+    [nombre, apellidos,edad],
+
+    (err,result)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send("Autor registrado");
+        }
+    }
+    );
+});
+
+
 app.listen(3001, ()=>{
 
 console.log("corriendo en el puerto 3001");

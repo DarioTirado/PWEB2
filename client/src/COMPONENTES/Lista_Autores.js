@@ -1,29 +1,38 @@
 import React from 'react';
 import '../CSS/BodyStyle.css';
 import '../CSS/HomeStyle.css';
+import '../CSS/ListaAutores.css';
 import '../RECURSOS/LogoLibro2.jpg';
 import { useNavigate } from 'react-router-dom';
 
-function Home() {
+function ListaAutores() {
     const sesion = JSON.parse(localStorage.getItem('sesion'))
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handlePerfilClick = () => {
 
-        if(sesion.rol==2){
-      navigate('/Perfil_Usuario'); // Redirige a la ruta '/registro'
+        if (sesion.rol == 2) {
+            navigate('/Perfil_Usuario'); // Redirige a la ruta '/registro'
         }
-        else{
+        else {
             navigate('/Perfil_Admin');
         }
     };
     const handleHomeClick = () => {
         navigate('/Home'); // Redirige a la ruta '/registro'
-        
     };
     const handleLoginClick = () => {
         navigate('/'); // Redirige a la ruta '/registro'
     };
+
+
+
+
+
+
+
+
+
     return (
         <div className="divbody">
             <header>
@@ -51,37 +60,38 @@ function Home() {
                 </nav>
             </header>
 
-            <div className="main-card">
-                <main>
-                    <section className="featured-products">
-                        <div className="section-header">
-                            <h2>Mas vendidos</h2>
-                        </div>
-                        <div className="Carrusel-Card">
-                            <div className="product-card">
-                                <img src="Assets/Libro1.jpg" alt="Producto 2" />
-                                <h3>Ventas con o sin crisis</h3>
-                                <p><a href="#">Categoria.</a></p>
-                                <span className="product-price">$109.99</span>
-                                <a href="/PWCI-BDM/HTMLS/VProducto.html"><button className="add-to-cart">Ver Producto</button></a>
-                            </div>
-                            {/* Repite esta estructura para más productos destacados */}
-                        </div>
-                    </section>
 
-                    <section className="popular-categories">
-                        <div className="section-header">
-                            <h2>Categorias más buscadas</h2>
-                        </div>
-                        <div className="Carrusel-Card">
-                            <div className="category">
-                                <img src="../RECURSOS/Libros.jpg" alt="Categoría 1" />
-                                <h3>Libreria Terror</h3>
-                            </div>
-                            {/* Repite esta estructura para más categorías */}
-                        </div>
-                    </section>
-                </main>
+            <div className='contenedorcartas'>
+                <div class="card">
+                    <div class="card-header">
+                        A Cerca De
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre De Autor </h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        A Cerca De
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre De Autor </h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        A Cerca De
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre De Autor </h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
 
             <footer>
@@ -92,7 +102,8 @@ function Home() {
                 </div>
             </footer>
         </div>
+
     );
 }
 
-export default Home;
+export default ListaAutores;
