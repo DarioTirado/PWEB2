@@ -1,11 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'; // Importa createRoot desde react-dom/client
-import Registro from '../src/COMPONENTES/Registro';
-import Home from '../src/COMPONENTES/Home';
-import Perfil from '../src/COMPONENTES/Perfil_Usuario';
-import PerfilAdmnin from '../src/COMPONENTES/Perfil_Admin';
-import ListaAutores from '../src/COMPONENTES/Lista_Autores';
-import App from '../src/App';
+import Registro from './COMPONENTES/Registro';
+import Home from './COMPONENTES/Home';
+import Perfil from './COMPONENTES/Perfil_Usuario';
+import PerfilAdmnin from './COMPONENTES/Perfil_Admin';
+import ListaAutores from './COMPONENTES/Lista_Autores';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

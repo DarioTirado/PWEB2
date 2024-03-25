@@ -4,6 +4,7 @@ import '../CSS/PerfilColor.css';
 import '../CSS/BodyStyle.css';
 import FormularioModal from '../COMPONENTES/modal_libro';
 import FormularioModalAutor from '../COMPONENTES/modal_Autor';
+import FormularioModalGenero from '../COMPONENTES/modal_Genero';
 import { useNavigate } from 'react-router-dom';
 
 function PerfilU() {
@@ -26,6 +27,11 @@ function PerfilU() {
       const [showModalautor, setShowModalautor] = useState(false);
       const handleShowautor = () => setShowModalautor(true);
       const handleCloseautor = () => setShowModalautor(false);
+
+      
+      const [showModalGenero, setShowModalGenero] = useState(false);
+      const handleShowGenero = () => setShowModalGenero(true);
+      const handleCloseGenero = () => setShowModalGenero(false);
     
 
     return (
@@ -101,6 +107,8 @@ function PerfilU() {
                                             <button type='button' id="register_btnges" className="btn btn-warning btn-lg ms-2" onClick={handleShowautor} >Agregar Autor</button>
                                             <FormularioModalAutor showModal={showModalautor} handleClose={handleCloseautor} />
                                             <button id="register_btnges" className="btn btn-warning btn-lg ms-2">Gestionar Autor</button>
+                                            <button type='button' id="register_btngesGenero" className="btn btn-warning btn-lg ms-2" onClick={handleShowGenero}>Registrar Genero</button>
+                                            <FormularioModalGenero showModal={showModalGenero} handleClose={handleCloseGenero} />
                                         </div>
                                     </div>
                                 </div>
