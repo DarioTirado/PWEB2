@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-02-2024 a las 04:51:11
+-- Tiempo de generación: 25-03-2024 a las 23:51:57
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -36,6 +36,14 @@ CREATE TABLE `autor` (
   `EDAD` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `autor`
+--
+
+INSERT INTO `autor` (`ID_AUTOR`, `NOMBRE`, `APELLIDO`, `EDAD`) VALUES
+(1, 'Autor1', 'apellidos1', 56),
+(2, 'Autor2', 'app2', 34);
+
 -- --------------------------------------------------------
 
 --
@@ -47,6 +55,13 @@ CREATE TABLE `genero` (
   `DESCRIPCION` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `genero`
+--
+
+INSERT INTO `genero` (`ID_GENERO`, `DESCRIPCION`) VALUES
+(1, 'Terror');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +72,25 @@ CREATE TABLE `genero_foraneo` (
   `ID_GENERO_FORANEO` int(11) NOT NULL,
   `ID_GENERO` int(11) NOT NULL,
   `ID_LIBRO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `genero_foraneo`
+--
+
+INSERT INTO `genero_foraneo` (`ID_GENERO_FORANEO`, `ID_GENERO`, `ID_LIBRO`) VALUES
+(1, 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagen`
+--
+
+CREATE TABLE `imagen` (
+  `ID_IMA` int(11) NOT NULL,
+  `ID_USUARIO` int(11) NOT NULL,
+  `IMAGEN` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -71,9 +105,17 @@ CREATE TABLE `libro` (
   `EDICION` int(11) NOT NULL,
   `ID_AUTOR` int(11) NOT NULL,
   `PAGINAS` int(11) NOT NULL,
-  `GENERO` varchar(255) NOT NULL,
-  `AÑO_PUBLICACION` date NOT NULL
+  `AÑO_PUBLICACION` date NOT NULL,
+  `SINOPSIS` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `libro`
+--
+
+INSERT INTO `libro` (`ID_LIBRO`, `TITULO`, `EDICION`, `ID_AUTOR`, `PAGINAS`, `AÑO_PUBLICACION`, `SINOPSIS`) VALUES
+(1, 'El Principito', 1, 1, 300, '0000-00-00', ''),
+(2, 'El Principito2', 2, 2, 213, '2009-02-25', 'sinopsis chida');
 
 -- --------------------------------------------------------
 
@@ -117,7 +159,7 @@ CREATE TABLE `usuario` (
   `ID_USUARIO` int(11) NOT NULL,
   `NOMBRES` varchar(255) NOT NULL,
   `APELLIDOS` varchar(255) NOT NULL,
-  `FOTO` varchar(255) DEFAULT NULL,
+  `FOTO` longtext DEFAULT NULL,
   `CORREO` varchar(255) NOT NULL,
   `CONTRASEÑA` varchar(255) NOT NULL,
   `GENERO` varchar(255) NOT NULL,
@@ -129,9 +171,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID_USUARIO`, `NOMBRES`, `APELLIDOS`, `FOTO`, `CORREO`, `CONTRASEÑA`, `GENERO`, `ROL`) VALUES
-(3, 'Dario', 'Tirado', NULL, 'dario@gmail.com', 'dario1.', 'Masculino', 2),
-(4, 'Pepe', 'Perez', NULL, 'pepe@gmail.com', 'Pepe123.', 'Otro', 1),
-(9, 'new', 'new', NULL, 'new@gmail.com', 'dario1.', 'Masculino', 2);
+(3, 'Dario', 'Tirado', '', 'dario@gmail.com', 'dario1.', 'Masculino', 2),
+(4, 'Pepe', 'Perez', '', 'pepe@gmail.com', 'Pepe123.', 'Otro', 1);
 
 --
 -- Índices para tablas volcadas
@@ -156,6 +197,12 @@ ALTER TABLE `genero_foraneo`
   ADD PRIMARY KEY (`ID_GENERO_FORANEO`),
   ADD KEY `FORANEO_GENERO` (`ID_GENERO`),
   ADD KEY `FORANEO_LIBRO` (`ID_LIBRO`);
+
+--
+-- Indices de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  ADD PRIMARY KEY (`ID_IMA`);
 
 --
 -- Indices de la tabla `libro`
@@ -193,25 +240,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `ID_AUTOR` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_AUTOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `ID_GENERO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_GENERO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `genero_foraneo`
 --
 ALTER TABLE `genero_foraneo`
-  MODIFY `ID_GENERO_FORANEO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_GENERO_FORANEO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `imagen`
+--
+ALTER TABLE `imagen`
+  MODIFY `ID_IMA` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `libro`
 --
 ALTER TABLE `libro`
-  MODIFY `ID_LIBRO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_LIBRO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `lista_foranea`
@@ -229,7 +282,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restricciones para tablas volcadas
