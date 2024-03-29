@@ -1,8 +1,10 @@
-import React from 'react';
+
 import '../CSS/BodyStyle.css';
 import '../CSS/HomeStyle.css';
 import '../RECURSOS/LogoLibro2.jpg';
 import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Home() {
     const sesion = JSON.parse(localStorage.getItem('sesion'))
@@ -24,6 +26,27 @@ function Home() {
     const handleLoginClick = () => {
         navigate('/'); // Redirige a la ruta '/registro'
     };
+
+   
+        const [Libro, setProductos] = useState([]);
+      
+        useEffect(() => {
+          const fetchData = async () => {
+            try {
+              const response = await axios.get('http://localhost:3001/getlibros');
+              setProductos(response.data);
+                console.log(response.data);
+            } catch (error) {
+              console.error('Error al obtener los libros:', error);
+            }
+          };
+      
+          fetchData();
+        }, []);
+
+    
+
+
     return (
         <div className="divbody">
             <header>
@@ -55,18 +78,19 @@ function Home() {
                 <main>
                     <section className="featured-products">
                         <div className="section-header">
-                            <h2>Mas vendidos</h2>
+                            <h2>Agregados recientemente</h2>
                         </div>
                         <div className="Carrusel-Card">
+                        {Libro.map((Libro) => (
                             <div className="product-card">
                                 <img src="Assets/Libro1.jpg" alt="Producto 2" />
-                                <h3>Ventas con o sin crisis</h3>
-                                <p><a href="#">Categoria.</a></p>
-                                <span className="product-price">$109.99</span>
-                                <a href="/PWCI-BDM/HTMLS/VProducto.html"><button className="add-to-cart">Ver Producto</button></a>
+                                <h3>{Libro.TITULO}</h3>
+                                <p><a>Genero:{Libro.DESCRIPCION}</a></p>
+                                <a href="/PWCI-BDM/HTMLS/VProducto.html"><button className="add-to-cart">Detalles</button></a>
                             </div>
-                            {/* Repite esta estructura para más productos destacados */}
-                        </div>
+                            ))}
+                            </div>
+                      
                     </section>
 
                     <section className="popular-categories">

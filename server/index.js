@@ -185,4 +185,26 @@ app.get("/getgeneros",
         })
 })
 
+
+app.get("/getlibros", 
+    (req, resp)=>{
+
+        db.query("SELECT * FROM libro l JOIN genero_foraneo lg ON l.ID_LIBRO = lg.ID_LIBRO JOIN genero g ON lg.ID_GENERO = g.ID_GENERO;",
+        (err, datagen)=>{
+            if(err){
+                resp.send(err);
+            }else{
+                console.log("Datos recibidos desde la base de datos:", datagen);
+                if(datagen.length > 0){
+                    resp.send(datagen)
+                }else{
+                    resp.json({
+                        "alert": 'Error',
+                        "message": 'Libros no encontrado'
+                    });
+                }
+            }
+        })
+})
+
 //-----------------------------------------------------UPDATES-------------------------------------------------------//
