@@ -208,3 +208,28 @@ app.get("/getlibros",
 })
 
 //-----------------------------------------------------UPDATES-------------------------------------------------------//
+
+
+app.post("/ActualizarInfo", 
+    (req, resp)=>{
+        const nombres =req.body.nombresnew
+        const apellidos = req.body.apellidosnew
+        const correo = req.body.correonew
+        const contrasena = req.body.passnew 
+        const genero = req.body.generonew
+
+
+        const sql = "UPDATE usuario SET NOMBRES=?, APELLIDOS=?, CONTRASEÑA=?, GENERO=? WHERE CORREO=?";
+        db.query(sql, [nombres, apellidos, contrasena, genero, correo], (err, result) => {
+            if (err) {
+              console.error('Error al actualizar usuario:', err);
+              resp.status(500).json({ error: 'Error al actualizar usuario' });
+            } else {
+               
+                resp.status(200).json({ message: 'Información de usuario actualizada correctamente' });
+
+            }
+          });
+});
+
+
