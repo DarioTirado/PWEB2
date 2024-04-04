@@ -2,7 +2,7 @@
 import '../CSS/BodyStyle.css';
 import '../CSS/HomeStyle.css';
 import '../RECURSOS/LogoLibro2.jpg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -86,7 +86,8 @@ function Home() {
                                 <img src="Assets/Libro1.jpg" alt="Producto 2" />
                                 <h3>{Libro.TITULO}</h3>
                                 <p><a>Genero:{Libro.DESCRIPCION}</a></p>
-                                <a href="/PWCI-BDM/HTMLS/VProducto.html"><button className="add-to-cart">Detalles</button></a>
+                                <Link to={`/Detalles_Libro/${Libro.ID_LIBRO}`}>Detalles</Link>
+                                <a><button className="add-to-cart">Detalles</button></a>
                             </div>
                             ))}
                             </div>

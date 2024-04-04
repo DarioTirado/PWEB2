@@ -207,6 +207,30 @@ app.get("/getlibros",
         })
 })
 
+
+app.get("/getlibrosdetalle/:ID_LIBRO", 
+    (req, resp)=>{
+        const ID_LIBRO = req.params.ID_LIBRO;
+        db.query("SELECT l.*, lg.*, g.*, a.*FROM libro l JOIN genero_foraneo lg ON l.ID_LIBRO = lg.ID_LIBRO JOIN genero g ON lg.ID_GENERO = g.ID_GENERO JOIN autor a ON l.ID_AUTOR = a.ID_AUTOR WHERE l.ID_LIBRO = ?",
+        [ID_LIBRO],
+        (err, datagen)=>{
+            if(err){
+                resp.send(err);
+            }else{
+                console.log("Datos recibidos desde la base de datos:", datagen);
+                if(datagen.length > 0){
+                    resp.send(datagen)
+                }else{
+                    resp.json({
+                        "alert": 'Error',
+                        "message": 'Detalle de el libro no encontrado'
+                    });
+                }
+            }
+        })
+})
+
+
 //-----------------------------------------------------UPDATES-------------------------------------------------------//
 
 

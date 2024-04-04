@@ -95,6 +95,21 @@
     background-color: #232f3e;
 }
 
+
+.Carrusel-Card2 {
+    
+    align-items: center;
+    width: 99%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow-x: auto;
+    background-color: #232f3e;
+}
+
+
 .Carrusel-Card::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -132,6 +147,23 @@
     text-align: center;
     min-width: 250px;
     border-radius: 50px;
+}
+
+.category2 {
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+    min-width: 250px;
+    border-radius: 50px;
+}
+
+.contenido_resena{
+    display: flex;
+   
+}
+
+.imagen_resena {
+    margin-right: 10px; 
 }
 
 .category img {
