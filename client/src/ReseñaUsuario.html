@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reseñas de libros</title>
+    
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Reseñas de libros</h1>
+</header>
+
+<section id="review-form">
+    <h2>Escribe una reseña</h2>
+    <form action="#" method="POST">
+        <label for="book-title">Título del libro:</label>
+        <input type="text" id="book-title" name="book-title" required>
+
+        <label for="user-name">Tu nombre:</label>
+        <input type="text" id="user-name" name="user-name" required>
+
+        <label for="user-review">Tu reseña:</label>
+        <textarea id="user-review" name="user-review" rows="4" required></textarea>
+
+        <button type="submit">Enviar reseña</button>
+    </form>
+</section>
+
+<section id="reviews">
+    <h2>Reseñas de usuarios</h2>
+    <div class="review">
+        <h3>Reseña 1</h3>
+        <p><strong>Libro:</strong> Título del libro</p>
+        <p><strong>Usuario:</strong> Nombre del usuario</p>
+        <p><strong>Reseña:</strong> Contenido de la reseña...</p>
+    </div>
+    <div class="review">
+        <h3>Reseña 2</h3>
+        <p><strong>Libro:</strong> Título del libro</p>
+        <p><strong>Usuario:</strong> Nombre del usuario</p>
+        <p><strong>Reseña:</strong> Contenido de la reseña...</p>
+    </div>
+    <!-- Agrega más reseñas aquí -->
+</section>
+
+<footer>
+    <p>&copy; 2024 Reseñas de libros. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
