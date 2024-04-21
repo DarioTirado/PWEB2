@@ -183,6 +183,19 @@ function PerfilU() {
                                         <div className="d-flex justify-content-end pt-3">
                                             <button id="register_btn" className="btn btn-warning btn-lg ms-2" onClick={ActualizarInfo}>Modificar</button>
                                         </div>
+                                        <div className="d-flex justify-content-end pt-3">
+                                           
+                                            <button type='button' id="register_btnagregarlibro" className="btn btn-warning btn-lg ms-2" onClick={handleShow}>Agregar Libro</button>
+                                            <FormularioModal showModal={showModal} handleClose={handleClose} />
+                                            
+                                            <button type='button' id="register_btnges" className="btn btn-warning btn-lg ms-2" onClick={handleShowautor} >Agregar Autor</button>
+                                            <FormularioModalAutor showModal={showModalautor} handleClose={handleCloseautor} />
+                                          
+                                            <button type='button' id="register_btngesGenero" className="btn btn-warning btn-lg ms-2" onClick={handleShowGenero}>Registrar Genero</button>
+                                            <FormularioModalGenero showModal={showModalGenero} handleClose={handleCloseGenero} />
+                                          
+                                        </div>
+
                                     </div>
                                 </div>
                             </form>
