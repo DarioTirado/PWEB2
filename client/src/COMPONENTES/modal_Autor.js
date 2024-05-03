@@ -28,7 +28,7 @@ const FormularioModal = ({ showModal, handleClose }) => {
 
       alert("Autor Registrado");
       navigate('/Perfil_Admin'); // Redirige a la ruta '/Login'
-  
+      window.location.reload();
     })
   }
 

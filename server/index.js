@@ -109,7 +109,26 @@ app.post("/RegistroLibro", (req, res) => {
         }
     );
 });
+       
+app.post("/RegistrarResena",(req,res)=>{
+    const   id_libro = req.body.id_libro;
+    const id_usuario = req.body.id_usuario;
+    const reseña = req.body.reseña;
 
+    db.query('INSERT INTO lista_foranea (ID_LIBRO, ID_USUARIO, RESEÑA) VALUES (?,?,?)',
+    [id_libro, id_usuario, reseña],
+
+    (err,result)=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.send("Reseña Publicada");
+        }
+    }
+    );
+});
+ 
 //-----------------------------------------------------SELECTS-------------------------------------------------------//
 app.post("/login", 
     (req, resp)=>{
@@ -125,6 +144,7 @@ app.post("/login",
                 if(data.length > 0){
                     resp.json({
                         "alert": 'Success',
+                        "id_usuario":data[0].ID_USUARIO,    
                         "nombre": data[0].NOMBRES,
                         "apellidos": data[0].APELLIDOS,
                         "genero": data[0].GENERO,

@@ -25,7 +25,7 @@ const FormularioModal = ({ showModal, handleClose }) => {
 
       alert("genero Registrado");
       navigate('/Perfil_Admin'); // Redirige a la ruta '/Login'
-  
+      window.location.reload();
     })
   }
 
