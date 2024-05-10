@@ -26,8 +26,11 @@ function Home() {
     const handleLoginClick = () => {
         navigate('/'); // Redirige a la ruta '/registro'
     };
+    const handleReseñasClick = () => {
+        navigate('/Mis_Resenas'); // Redirige a la ruta '/registro'
+    };
 
-   
+    
         const [Libro, setProductos] = useState([]);
       
         useEffect(() => {
@@ -68,7 +71,7 @@ function Home() {
                     <ul className="menu">
                         <li><a href="" onClick={handleHomeClick}>Inicio</a></li>
                         <li><a href="" onClick={handlePerfilClick}>Mi Cuenta </a></li>
-                        <li><a href="">Mis Reseñas</a></li>
+                        <li><a href="" onClick={handleReseñasClick}> Mis Reseñas</a></li>
                         <li><a href="" onClick={handleLoginClick}>Salir</a></li>
                     </ul>
                 </nav>

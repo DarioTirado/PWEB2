@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate,LINK } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from "axios";
@@ -9,13 +9,31 @@ function Detalles_libro() {
     const [Librodetalles, setDetalle] = useState([]);
     const sesion = JSON.parse(localStorage.getItem('sesion'))
     const navigate = useNavigate();
-    const [reseña, setRes] = useState("");
+    const [reseña, setRes] = useState([]);
+    const [reseñaN, setResN] = useState([]);
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://localhost:3001/getlibrosdetalle/${ID_LIBRO}`);
                 setDetalle(response.data);
                 console.log(response.data);
+            } catch (error) {
+                console.error('Error al obtener los detalles del libro:', error);
+            }
+        };
+
+        fetchData();
+    }, [ID_LIBRO]);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response1 = await axios.get(`http://localhost:3001/getresenaslibro/${ID_LIBRO}`);
+                setResN(response1.data);
+                console.log(response1.data);
             } catch (error) {
                 console.error('Error al obtener los detalles del libro:', error);
             }
@@ -132,14 +150,17 @@ function Detalles_libro() {
                             <h2>RESEÑAS</h2>
                         </div>
                         <div className="Carrusel-Card2">
-                            <div className="category2">
-                                <div className='contenido_resena'>
-                                    <img className='imagen_resena' src="../RECURSOS/Libros.jpg" alt="Imagen_Usario" />
-                                    <p>usuario1</p>
+                            {reseñaN.map((lista_foranea) =>(
+                                 <div className="category2">
+                                    <div className='contenido_resena'>
+                                     <p>usuario:{lista_foranea.CORREO}</p>
                                 </div>
-                                <h5>OPINION1</h5>
+                                <h5>OPINION:{lista_foranea.RESEÑA}</h5>
+                                <button type="button" className="btn btn-warning btn-lg ms-2">Eliminar</button>
                             </div>
-
+                            ))}
+                            
+                             
                             {/* Repite esta estructura para más categorías */}
                         </div>
                     </section>

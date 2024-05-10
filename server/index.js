@@ -251,6 +251,50 @@ app.get("/getlibrosdetalle/:ID_LIBRO",
 })
 
 
+app.get("/getresenaslibro/:ID_LIBRO", 
+    (req, resp)=>{
+        const ID_LIBRO = req.params.ID_LIBRO;
+        db.query("SELECT RESEÑA, IU.ID_USUARIO, IU.NOMBRES, IU.CORREO FROM lista_foranea LF JOIN usuario IU ON LF.ID_USUARIO = IU.ID_USUARIO WHERE ID_LIBRO = ?;",
+        [ID_LIBRO],
+        (err, datagen)=>{
+            if(err){
+                resp.send(err);
+            }else{
+                console.log("Datos recibidos desde la base de datos:", datagen);
+                if(datagen.length > 0){
+                    resp.send(datagen)
+                }else{
+                    resp.json({
+                        "alert": 'Error',
+                        "message": 'No sem pudo obtener las Reseñas'
+                    });
+                }
+            }
+        })
+})
+
+app.get("/getmisresenas/:ID_USUARIO", 
+    (req, resp)=>{
+        const ID_LIBRO = req.params.ID_LIBRO;
+        db.query("SELECT RESEÑA, IU.NOMBRES, IU.CORREO FROM lista_foranea LF JOIN usuario IU ON LF.ID_USUARIO = IU.ID_USUARIO WHERE ID_USUARIO = ?;",
+        [ID_LIBRO],
+        (err, datagen)=>{
+            if(err){
+                resp.send(err);
+            }else{
+                console.log("Datos recibidos desde la base de datos:", datagen);
+                if(datagen.length > 0){
+                    resp.send(datagen)
+                }else{
+                    resp.json({
+                        "alert": 'Error',
+                        "message": 'No sem pudo obtener las Reseñas'
+                    });
+                }
+            }
+        })
+})
+
 //-----------------------------------------------------UPDATES-------------------------------------------------------//
 
 
