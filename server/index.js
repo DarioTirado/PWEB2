@@ -273,11 +273,11 @@ app.get("/getresenaslibro/:ID_LIBRO",
         })
 })
 
-app.get("/getmisresenas/:ID_USUARIO", 
+app.get("/getmisresenas/:ID", 
     (req, resp)=>{
-        const ID_LIBRO = req.params.ID_LIBRO;
-        db.query("SELECT RESEÑA, IU.NOMBRES, IU.CORREO FROM lista_foranea LF JOIN usuario IU ON LF.ID_USUARIO = IU.ID_USUARIO WHERE ID_USUARIO = ?;",
-        [ID_LIBRO],
+        const ID_USUARIO = req.params.ID;
+        db.query("SELECT RESEÑA, IU.NOMBRES, IU.CORREO, LB.TITULO FROM lista_foranea LF JOIN usuario IU ON LF.ID_USUARIO = IU.ID_USUARIO JOIN libro LB ON LF.ID_LIBRO = LB.ID_LIBRO WHERE IU.ID_USUARIO = ?;",
+        [ID_USUARIO],
         (err, datagen)=>{
             if(err){
                 resp.send(err);

@@ -3,6 +3,7 @@ import { useParams, useNavigate,LINK } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from "axios";
+import CARD from '../COMPONENTES/RESENAS_GLOBALES';
 
 function Detalles_libro() {
     const { ID_LIBRO } = useParams();
@@ -28,7 +29,7 @@ function Detalles_libro() {
     }, [ID_LIBRO]);
 
 
-    useEffect(() => {
+    /*useEffect(() => {
         const fetchData = async () => {
             try {
                 const response1 = await axios.get(`http://localhost:3001/getresenaslibro/${ID_LIBRO}`);
@@ -38,9 +39,8 @@ function Detalles_libro() {
                 console.error('Error al obtener los detalles del libro:', error);
             }
         };
-
         fetchData();
-    }, [ID_LIBRO]);
+    }, [ID_LIBRO]);*/
 
     const handlePerfilClick = () => {
 
@@ -149,20 +149,10 @@ function Detalles_libro() {
                         <div className="section-header">
                             <h2>RESEÑAS</h2>
                         </div>
-                        <div className="Carrusel-Card2">
-                            {reseñaN.map((lista_foranea) =>(
-                                 <div className="category2">
-                                    <div className='contenido_resena'>
-                                     <p>usuario:{lista_foranea.CORREO}</p>
-                                </div>
-                                <h5>OPINION:{lista_foranea.RESEÑA}</h5>
-                                <button type="button" className="btn btn-warning btn-lg ms-2">Eliminar</button>
-                            </div>
-                            ))}
-                            
-                             
-                            {/* Repite esta estructura para más categorías */}
-                        </div>
+                     <CARD />{ }
+
+
+
                     </section>
 
                 </main>
