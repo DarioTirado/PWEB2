@@ -4,6 +4,10 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Axios from "axios";
 import CARD from '../COMPONENTES/RESENAS_GLOBALES';
+import CARDDEF from '../COMPONENTES/RESENA_DEFAULT';
+import CARDADMIN from '../COMPONENTES/Resena_Admin';
+import { Alert } from 'bootstrap';
+import NAVBAR from '../COMPONENTES/NAVBAR';
 
 function Detalles_libro() {
     const { ID_LIBRO } = useParams();
@@ -12,6 +16,7 @@ function Detalles_libro() {
     const navigate = useNavigate();
     const [reseña, setRes] = useState([]);
     const [reseñaN, setResN] = useState([]);
+    const [booleanoAdicional, setBooleanoAdicional] = useState(true);//CONDICIONA EL IF DE LAS RESEÑAS
 
 
     useEffect(() => {
@@ -29,7 +34,9 @@ function Detalles_libro() {
     }, [ID_LIBRO]);
 
 
-    /*useEffect(() => {
+    
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 const response1 = await axios.get(`http://localhost:3001/getresenaslibro/${ID_LIBRO}`);
@@ -40,7 +47,7 @@ function Detalles_libro() {
             }
         };
         fetchData();
-    }, [ID_LIBRO]);*/
+    }, [ID_LIBRO]);
 
     const handlePerfilClick = () => {
 
@@ -76,32 +83,11 @@ function Detalles_libro() {
     };
     
 
-
+   
     return (
         <div className="divbody">
             <header>
-                <nav>
-                    <div className="logo">
-                        <img src="../RECURSOS/LogoLibro2.jpg" alt="Logo de la Tienda" />
-                    </div>
-                    <div className="search-box">
-                        <select id="filter">
-                            <option value="nombre">Categorias</option>
-                            <option value="nombre">Nombre</option>
-                            <option value="precio">Precio</option>
-                            <option value="calificacion">Calificación</option>
-                            <option value="vendidos">Más vendidos</option>
-                        </select>
-                        <input type="text" id="search-input" placeholder="Buscar" />
-                        <input type="submit" value="Buscar" />
-                    </div>
-                    <ul className="menu">
-                        <li><a href="" onClick={handleHomeClick}>Inicio</a></li>
-                        <li><a href="" onClick={handlePerfilClick}>Mi Cuenta </a></li>
-                        <li><a href="">Mis Reseñas</a></li>
-                        <li><a href="" onClick={handleLoginClick}>Salir</a></li>
-                    </ul>
-                </nav>
+              <NAVBAR />
             </header>
 
             <div className="main-card">
@@ -135,11 +121,11 @@ function Detalles_libro() {
                     </section>
 
 
-                    <div class="form-group">
+                    <div className="form-group">
                         <div className="section-header">
                             <h2>Agregar Reseña</h2>
                         </div>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" onChange={(event) => {
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" onChange={(event) => {
                             setRes(event.target.value);
                         }}></textarea>
                         <button type="button" className="btn btn-warning btn-lg ms-2" onClick={() => RegistrarReseña(Librodetalles[0])}>Publicar</button>
@@ -149,9 +135,11 @@ function Detalles_libro() {
                         <div className="section-header">
                             <h2>RESEÑAS</h2>
                         </div>
-                     <CARD />{ }
-
-
+                       
+                       
+                        { Object.keys(reseñaN).length <= 0 ?<CARDDEF /> : <CARD />}
+                      
+                       
 
                     </section>
 

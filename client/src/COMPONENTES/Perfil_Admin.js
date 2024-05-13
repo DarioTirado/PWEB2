@@ -7,6 +7,7 @@ import FormularioModalAutor from '../COMPONENTES/modal_Autor';
 import FormularioModalGenero from '../COMPONENTES/modal_Genero';
 import { useNavigate } from 'react-router-dom';
 import Axios from "axios";
+import NAVBAR from '../COMPONENTES/NAVBAR';
 
 function PerfilU() {
     const sesion = JSON.parse(localStorage.getItem('sesion'))
@@ -66,31 +67,17 @@ function PerfilU() {
    }else{
        nombrerol="ADMIN";
    }
+
+
+
+   const Resenas_Globales = () =>{
+    navigate('/Lista_Resenas');
+   }
     return (
         <>
               
               <header>
-                <nav>
-                    <div className="logo">
-                        <img src="../RECURSOS/LogoLibro2.jpg" alt="Logo de la Tienda" />
-                    </div>
-                    <div className="search-box">
-                        <select id="filter">
-                            <option value="nombre">Categorias</option>
-                            <option value="nombre">Nombre</option>
-                            <option value="precio">Precio</option>
-                            <option value="calificacion">Calificación</option>
-                            <option value="vendidos">Más vendidos</option>
-                        </select>
-                        <input type="text" id="search-input" placeholder="Buscar" />
-                        <input type="submit" value="Buscar" />
-                    </div>
-                    <ul className="menu">
-                        <li><a href="" onClick={handleHomeClick}>Inicio</a></li>
-                        <li><a href="">Mis Reseñas</a></li>
-                        <li><a href="" onClick={handleLoginClick}>Salir</a></li>
-                    </ul>
-                </nav>
+               <NAVBAR />
             </header>
 
             <div className="SecondBodyClass">
@@ -194,6 +181,7 @@ function PerfilU() {
                                             <button type='button' id="register_btngesGenero" className="btn btn-warning btn-lg ms-2" onClick={handleShowGenero}>Registrar Genero</button>
                                             <FormularioModalGenero showModal={showModalGenero} handleClose={handleCloseGenero} />
                                           
+                                            <button type='button' id="register_btngesGenero" className="btn btn-warning btn-lg ms-2" onClick={Resenas_Globales}>Ver Reseñas</button>
                                         </div>
 
                                     </div>

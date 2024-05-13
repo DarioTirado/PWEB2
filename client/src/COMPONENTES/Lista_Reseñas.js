@@ -3,30 +3,9 @@ import { useParams, useNavigate, LINK } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NAVBAR from '../COMPONENTES/NAVBAR';
-import CARTA from '../COMPONENTES/CARTA_RESENA';
-import CARTADEF from '../COMPONENTES/RESENA_DEFAULT';
+import RESENA_ADMIN from '../COMPONENTES/Resena_Admin';
+function Lista_Resenas() {
 
-
-
-function Mis_Resenas() {
-    const sesion = JSON.parse(localStorage.getItem('sesion'))
-    const [MisResenas, setMisResenas] = useState([]);
-    const ID =sesion.id_usuario;
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`http://localhost:3001/getmisresenas/${ID}`);
-                setMisResenas(response.data);
-                console.log(response.data);
-            } catch (error) {
-                console.error('Error al obtener los detalles del libro:', error);
-            }
-        };
-    
-        fetchData();
-    }, );
-    
     return (
 
         <div className="divbody">
@@ -41,16 +20,16 @@ function Mis_Resenas() {
                     </section>
                     <section className="popular-categories">
                         <div className="section-header">
-                            <h2>MIS RESEÑAS</h2>
+                            <h2>RESEÑAS GLOBALES</h2>
                         </div>
 
 
                         <div className="Carrusel-Card2">
                            
-                             
-                          
-                            { Object.keys(MisResenas).length <= 0 ?<CARTADEF /> : <CARTA />}
+                                <RESENA_ADMIN />
                             </div>
+
+                          
                     </section>
 
 
@@ -70,7 +49,7 @@ function Mis_Resenas() {
 }
 
 
-export default Mis_Resenas;
+export default Lista_Resenas;
 
 
 

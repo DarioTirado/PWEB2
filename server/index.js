@@ -265,8 +265,7 @@ app.get("/getresenaslibro/:ID_LIBRO",
                     resp.send(datagen)
                 }else{
                     resp.json({
-                        "alert": 'Error',
-                        "message": 'No sem pudo obtener las Reseñas'
+                       
                     });
                 }
             }
@@ -287,13 +286,34 @@ app.get("/getmisresenas/:ID",
                     resp.send(datagen)
                 }else{
                     resp.json({
-                        "alert": 'Error',
-                        "message": 'No sem pudo obtener las Reseñas'
+                       
                     });
                 }
             }
         })
 })
+
+app.get("/getresenasGlobales", 
+    (req, resp)=>{
+
+        db.query("SELECT RESEÑA,ID_LISTA_FORANEA, IU.ID_USUARIO, IU.NOMBRES, IU.CORREO FROM lista_foranea LF JOIN usuario IU ON LF.ID_USUARIO = IU.ID_USUARIO",
+        (err, datagen)=>{
+            if(err){
+                resp.send(err);
+            }else{
+                console.log("Datos recibidos desde la base de datos:", datagen);
+                if(datagen.length > 0){
+                    resp.send(datagen)
+                }else{
+                    resp.json({
+                        "alert": 'Error',
+                        "message": 'Generos no encontrado'
+                    });
+                }
+            }
+        })
+})
+
 
 //-----------------------------------------------------UPDATES-------------------------------------------------------//
 
@@ -319,5 +339,33 @@ app.post("/ActualizarInfo",
             }
           });
 });
+
+//-----------------------------------------------------DELETE-------------------------------------------------------//
+
+
+app.post("/eliminarResena/:idResena", 
+    (req, resp)=>{
+        const id =req.params.idResena
+     
+        const sql = "DELETE FROM lista_foranea WHERE ID_LISTA_FORANEA = ?";
+        db.query(sql, [id], (err, result) => {
+            if (err) {
+              console.error('Error al Eliminar Reseñá:', err);
+              resp.status(500).json({ error: 'Error al Eliminar Reseñá' });
+            } else {
+               
+                resp.status(200).json({ message: 'Reseña Eliminada correctamente' });
+
+            }
+          });
+});
+
+
+
+
+
+
+
+
 
 

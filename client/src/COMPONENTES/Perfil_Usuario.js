@@ -4,6 +4,8 @@ import '../CSS/PerfilColor.css';
 import '../CSS/BodyStyle.css';
 import { useNavigate } from 'react-router-dom';
 import Axios from "axios";
+import NAVBAR from '../COMPONENTES/NAVBAR';
+
 function PerfilU() {
     const sesion = JSON.parse(localStorage.getItem('sesion'));
     const navigate = useNavigate();
@@ -53,27 +55,7 @@ function PerfilU() {
         <>
             
             <header>
-                <nav>
-                    <div className="logo">
-                        <img src="../RECURSOS/LogoLibro2.jpg" alt="Logo de la Tienda" />
-                    </div>
-                    <div className="search-box">
-                        <select id="filter">
-                            <option value="nombre">Categorias</option>
-                            <option value="nombre">Nombre</option>
-                            <option value="precio">Precio</option>
-                            <option value="calificacion">Calificación</option>
-                            <option value="vendidos">Más vendidos</option>
-                        </select>
-                        <input type="text" id="search-input" placeholder="Buscar" />
-                        <input type="submit" value="Buscar" />
-                    </div>
-                    <ul className="menu">
-                        <li><a href="" onClick={handleHomeClick}>Inicio</a></li>
-                        <li><a href="">Mis Reseñas</a></li>
-                        <li><a href="" onClick={handleLoginClick}>Salir</a></li>
-                    </ul>
-                </nav>
+               <NAVBAR />
             </header>
 
             <div className="SecondBodyClass">

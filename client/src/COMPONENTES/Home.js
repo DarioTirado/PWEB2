@@ -5,6 +5,7 @@ import '../RECURSOS/LogoLibro2.jpg';
 import { useNavigate, Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import NAVBAR from '../COMPONENTES/NAVBAR';
 
 function Home() {
     const sesion = JSON.parse(localStorage.getItem('sesion'))
@@ -53,28 +54,7 @@ function Home() {
     return (
         <div className="divbody">
             <header>
-                <nav>
-                    <div className="logo">
-                        <img src="../RECURSOS/LogoLibro2.jpg" alt="Logo de la Tienda" />
-                    </div>
-                    <div className="search-box">
-                        <select id="filter">
-                            <option value="nombre">Categorias</option>
-                            <option value="nombre">Nombre</option>
-                            <option value="precio">Precio</option>
-                            <option value="calificacion">Calificación</option>
-                            <option value="vendidos">Más vendidos</option>
-                        </select>
-                        <input type="text" id="search-input" placeholder="Buscar" />
-                        <input type="submit" value="Buscar" />
-                    </div>
-                    <ul className="menu">
-                        <li><a href="" onClick={handleHomeClick}>Inicio</a></li>
-                        <li><a href="" onClick={handlePerfilClick}>Mi Cuenta </a></li>
-                        <li><a href="" onClick={handleReseñasClick}> Mis Reseñas</a></li>
-                        <li><a href="" onClick={handleLoginClick}>Salir</a></li>
-                    </ul>
-                </nav>
+               <NAVBAR />
             </header>
 
             <div className="main-card">
